@@ -11,12 +11,10 @@ public class JokeServiceImpl implements JokeService {
 	private final ChuckNorrisQuotes chuckNorrisQuotes;
 	
 //	Constructors
-	public JokeServiceImpl() {
-		this.chuckNorrisQuotes = new ChuckNorrisQuotes(); // Initializing the final variable (variable that cannot be
-		// changed) inside the constructor, which avoids that it being created at every request, thus reducing the overhead.
+	public JokeServiceImpl(ChuckNorrisQuotes chuckNorrisQuotes) { // Constructor based Injection. 
+		// We have a single property and a constructor, now we have to provide a bean to the context
+		this.chuckNorrisQuotes = chuckNorrisQuotes;
 	}
-
-
 
 	@Override
 	public String getJoke() {
